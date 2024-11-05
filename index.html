@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.6.0/styles/default.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.6.0/highlight.min.js"></script>
+    <script>hljs.highlightAll();</script>
+    <title>Python Tutorial</title>
+</head>
+<body>
+
+<header>
+    <h1>Python Learning Tasks for Kriss</h1>
+</header>
+<img src="https://media.giphy.com/media/WUlplcMpOCEmTGBtBW/giphy.gif?cid=790b7611885u6nvqa5qxtxsx7rbbppzmvv0nfuefnw8txjka&ep=v1_stickers_search&rid=giphy.gif&ct=s" alt="Cute GIF" class="cute-gif">
+
+<main>
+    <nav>
+        <ul>
+            <li><a href="#task1">1. Variables</a></li>
+            <li><a href="#task2">2. Loops</a></li>
+            <li><a href="#task3">3. Conditional Statements</a></li>
+            <li><a href="#task4">4. Functions</a></li>
+            <li><a href="#task5">5. Files</a></li>
+        </ul>
+    </nav>
+
+    <div class="collapsible-section"></div>
+    <button class="collapsible">Variables</button>
+    <section id="task1" class="task-section">
+        <p>
+            Variables are like <strong>containers</strong> that <strong>store data values</strong>. 
+            You can think of them as boxes where you can 
+            keep different types of information, such as numbers, text or others.
+        </p>
+        <h3>Create Variables</h3>
+        <p>
+            A variable is created the moment you first assign a value to it c:
+        </p>
+        <div class="code-container">
+            <pre><code class="language-python">favorite_drink = "Burn"  #type str
+games_owned = 156        #type int
+print("My favorite drink is "+ favorite_drink + " and I own " + str(games_owned) + " games.")</code></pre>
+        </div>
+        <div class="code-container">
+            <pre>My favorite drink is Burn and I own 156 games.</pre>
+        </div>
+        <p>
+            The <strong>+</strong> symbol concatenates strings (sticks them together), so there, in the 
+            print we put the number inside a <strong>str()</strong> to make it a string 
+            (can read about 
+            <a href="https://www.w3schools.com/python/python_casting.asp" target="_blank">casting</a>).
+        </p>
+        <h3>Task 1: Calculate Daily Screen Time Percentage</h3>
+        <p>
+            Kriss wants to track how much time he spends on different activities each day. 
+            This task will help him calculate the percentage of day time spent on gaming, 
+            studying, and watching YouTube. 
+        </p>
+        <p>Kriss spends his time as follows:</p>
+        <ul>
+            <li>Gaming: 4 hours</li>
+            <li>Studying Japanese: 2 hours</li>
+            <li>Watching YouTube: 2 hours</li>
+        </ul>
+        <p>Consider a day has 24h.</p> 
+        <p>Example Output (do the same format but with the numbers u get):</p>
+        <div class="code-container">
+            <pre>Percentage of time spent on gaming: 1%
+Percentage of time spent studying Japanese: 2%
+Percentage of time spent watching YouTube: 3%</pre>
+        </div>
+        <button onclick="toggleHint()">Show Hint</button>
+        <div id="hint" style="display: none; margin-top: 10px; background-color: #f9f9f9; padding: 10px; border-radius: 5px;">
+            <p>Hint: Remember str(). Also remember to divide the time spent on each activity by the total hours in a day, 
+                then multiply by 100 to get the percentage! 
+                <div class="code-container">
+                    <pre><code class="language-python">gaming_percentage = (hours_gaming / 24) * 100</code></pre>
+                </div>
+            </p>
+        </div>
+        <iframe src="https://trinket.io/embed/python/a41ce1862409" width="100%" height="400" frameborder="0" marginwidth="0" marginheight="0" allowfullscreen></iframe>        
+        
+        <textarea placeholder="Paste your output here..."></textarea>
+        <button onclick="checkOutput('Percentage of time spent on gaming: 16.6666666667%\nPercentage of time spent studying Japanese: 8.33333333333%\nPercentage of time spent watching YouTube: 8.33333333333%', event)">Check Output</button>
+        <div id="result"></div>
+        <!-- New "Show Answer" button -->
+    <button onclick="toggleAnswer()">Show Answer</button>
+    
+    <!-- Hidden answer section to be shown when the button is clicked -->
+    <div id="answer" style="display: none; margin-top: 10px; background-color: #eee; padding: 15px; border-radius: 5px;">
+        <p><strong>Expected Output:</strong></p>
+        <pre>
+Percentage of time spent on gaming: 16.6666666667%
+Percentage of time spent studying Japanese: 8.33333333333%
+Percentage of time spent watching YouTube: 8.33333333333%
+        </pre>
+        <p><strong>Correct Code (something like this):</strong></p>
+        <iframe src="https://trinket.io/embed/python/7e320a86c9cd" width="100%" height="600" frameborder="0" marginwidth="0" marginheight="0" allowfullscreen></iframe>
+    </div>
+    </section>
+</div>
+    
+    <div class="collapsible-section"></div>
+        <button class="collapsible">Loops</button>
+    <section id="task2" class="task-section">
+        <p>
+            Loops allow you to <strong>repeat a block of code</strong> as many times as you need. 
+            It’s like telling Python to keep doing something until you say stop.
+        </p>
+        
+        <h3>Using a For Loop</h3>
+        <p>
+            One way to repeat actions is by using a <strong>for loop</strong>. A for loop is great when you 
+            know exactly how many times you want to repeat something.
+        </p>
+        <div class="code-container">
+            <pre><code class="language-python">greetings = ["Konnichiwa", "Ohayou", "Konbanwa"]
+for greeting in greetings:
+    print(greeting)</code></pre>
+        </div>
+        <div class="code-container">
+            <pre>Konnichiwa
+Ohayou  
+Konbanwa              
+            </pre>
+        </div>
+        <p>
+            Here, each greeting in the list is printed one by one. The <strong>for</strong> loop 
+            repeats for each item in the
+            <a href="https://www.w3schools.com/python/python_lists.asp" target="_blank">list</a>, 
+            printing each greeting.
+        </p>
+    
+        <h3>Task 2: Game Collection Count</h3>
+        <p>
+            Below is a list of some of Kriss's games. Use a <strong>for loop</strong> to print each game in the list!
+        </p>
+        <div class="code-container">
+            <pre><code class="language-python">games_owned = ["Red Dead Redemption 2", "Yakuza", "Counter-Strike", "Silent Hill", "Resident Evil"]</code></pre>
+        </div>
+        
+        <iframe src="https://trinket.io/embed/python/4c97bab11023" width="100%" height="600" frameborder="0" marginwidth="0" marginheight="0" allowfullscreen></iframe>        
+    
+        <textarea placeholder="Paste your output here..."></textarea>
+        <button onclick="checkOutput('Red Dead Redemption 2\nYakuza\nCounter-Strike\nSilent Hill\nResident Evil', event)">Check Output</button>
+        <div id="result2"></div>
+    
+        <!-- "Show Answer" button for task 2 -->
+        <button onclick="toggleAnswer2()">Show Answer</button>
+        
+        <!-- Hidden answer section for task 2 -->
+        <div id="answer2" style="display: none; margin-top: 10px; background-color: #eee; padding: 15px; border-radius: 5px;">
+            <p><strong>Expected Output:</strong></p>
+            <pre>
+    Red Dead Redemption 2
+    Yakuza
+    Counter-Strike
+    Silent Hill
+    Resident Evil
+            </pre>
+            <p><strong>Correct Code (something like this):</strong></p>
+            <iframe src="https://trinket.io/embed/python/4471646fedf4" width="100%" height="600" frameborder="0" marginwidth="0" marginheight="0" allowfullscreen></iframe>
+        </div>
+    </div>
+    </section>
+</div>
+
+<div class="collapsible-section"></div>
+<button class="collapsible">Conditional Statements</button>
+    <section id="task3" class="task-section">
+        <p>
+            Conditional statements allow you to make decisions in your code. You can control 
+            what code runs depending on conditions being met. Think of it as saying, "If this happens, do that."
+        </p>
+        
+        <h3>Using if-elif-else</h3>
+        <p>
+            In Python, you can use <strong>if-elif-else</strong> statements to check conditions and decide 
+            which blocks of code to execute.
+        </p>
+        <div class="code-container">
+            <pre><code class="language-python">age = 18
+    
+if age >= 18:
+    print("You are old enough to play this game!")
+else:
+    print("Sorry, you are not old enough to play this game.")</code></pre>
+        </div>
+        <div class="code-container">
+            <pre>You are old enough to play this game!</pre>
+        </div>
+        
+        <h3>Task 3: Check Gaming Hours</h3>
+    <p>
+        Kriss wants to track if he’s gaming too much each day. Write a condition to the hours
+        gaming are more than 4. If it is, print "You’ve played too much today!" Otherwise, 
+        print "Your gaming time is within a healthy limit." Use this:
+    </p>
+    <div class="code-container">
+        <pre><code class="language-python">hours_gaming = 5</code></pre>
+    </div>
+
+    <iframe src="https://trinket.io/embed/python/a03a95126ca1" width="100%" height="600" frameborder="0" marginwidth="0" marginheight="0" allowfullscreen></iframe>       
+
+    <textarea placeholder="Paste your output here..."></textarea>
+    <button onclick="checkOutput('You’ve played too much today!', event)">Check Output</button>
+    <div id="result3"></div>
+
+    <!-- "Show Answer" button for task 3 -->
+    <button onclick="toggleAnswer3()">Show Answer</button>
+    <!-- Hidden answer section for task 3 -->
+    <div id="answer3" style="display: none; margin-top: 10px; background-color: #eee; padding: 15px; border-radius: 5px;">
+        <p><strong>Expected Output:</strong></p>
+        <pre>You’ve played too much today!</pre>
+        <p><strong>Correct Code (something like this):</strong></p>
+        <iframe src="https://trinket.io/embed/python/5c138b5fd2b9" width="100%" height="600" frameborder="0" marginwidth="0" marginheight="0" allowfullscreen></iframe>
+    </div>
+    </section>
+</div>
+
+<div class="collapsible-section"></div>
+<button class="collapsible">Functions</button>
+    <section id="task4" class="task-section">
+        <p>
+            Functions are blocks of code that perform a specific task and can be used multiple times.
+            They allow us to write code once and reuse it whenever we need to perform that task.
+        </p>
+        
+        <h3>Defining and Calling a Function</h3>
+        <p>
+            Here’s how to define a function that adds two numbers and gives you the result. 
+        A function is created using the <code>def</code> keyword, followed by a name and a set of parentheses.
+        Inside of the parentheses you can add parameters to the function, separated with a coma.
+        </p>
+        <p>
+            If you define a function and you don't call it it, the code inside it will never get
+            executed. So to start their code you have to call them.
+        </p>
+        <div class="code-container">
+            <pre><code class="language-python">def add_numbers(number1, number2): # (1)
+    # Since we called function like this: add_numbers(5, 3) internally its saying
+    # number1 = 5, number2 = 3
+    result = number1 + number2
+    return result # this return goes back to the call portion, saving it in the sum variable
+
+#THE EXECUTION STARTS FROM HERE DOWN c:   
+sum = add_numbers(5, 3) # here we are calling the function so we go there (1)
+print("The sum of the numbers is: ", sum)</code></pre>
+        </div>
+        <div class="code-container">
+            <pre>The sum of the numbers is: 8</pre>
+        </div>
+        <p>We could actually call the function again in the same file with other numbers and get their
+            sum c: like excel functions c:
+        </p>
+    
+        <h3>Task 4: Calculate Average Sleep time Using a Function</h3>
+        <p>
+            Kriss now wants to calculate the average weekly sleeping time. Write a function 
+        <code>calculate_average_hours</code> that takes 7 numbers representing the hours of eep for each day of the week 
+        and returns the average.
+        </p>
+        <div class="code-container">
+            <pre><code class="language-python">def calculate_average_hours(mon, tue, wed, thu, fri, sat, sun):
+        # Define your function here</code></pre>
+        </div>
+        <p>Kriss week looked like this:</p>
+        <ul>
+            <li>Monday: 8 hours</li>
+            <li>Tuesday: 7 hours</li>
+            <li>Wednesday: 6 hours</li>
+            <li>Thursday: 8 hours</li>
+            <li>Friday: 7 hours</li>
+            <li>Saturday: 9 hours</li>
+            <li>Sunday: 8 hours</li>
+        </ul>
+        <p>The output should only be the number, nothing else c:</p>
+    <button onclick="toggleHint4()">Show Hint</button>
+    <div id="hint4" style="display: none; margin-top: 10px; background-color: #f9f9f9; padding: 10px; border-radius: 5px;">
+        <p>To calculate the average, sum all the hours and divide by 7. You can use 
+            <code>return total_hours / 7</code> to return the average. Just print the number.</p>
+        <p>Inside the function, you can calculate total_hours as <code>total_hours = mon + tue + wed + thu + fri + sat + sun</code>.</p>
+    </div>
+
+    <iframe src="https://trinket.io/embed/python/95f89ec86302" width="100%" height="600" frameborder="0" marginwidth="0" marginheight="0" allowfullscreen></iframe>
+
+    <textarea placeholder="Paste your output here..."></textarea>
+    <button onclick="checkOutput('7.57142857143', event)">Check Output</button>
+    <div id="result4"></div>
+
+    <!-- "Show Answer" button for task 4 -->
+<button onclick="toggleAnswer4()">Show Answer</button>
+
+<!-- Hidden answer section for task 4 -->
+<div id="answer4" style="display: none; margin-top: 10px; background-color: #eee; padding: 15px; border-radius: 5px;">
+    <p><strong>Expected Output:</strong></p>
+    <pre>7.57142857143</pre>
+    <p><strong>Correct Code:</strong></p>
+    <iframe src="https://trinket.io/embed/python/660f284ee256" width="100%" height="600" frameborder="0" marginwidth="0" marginheight="0" allowfullscreen></iframe>
+    </div>
+</div>
+    </section>
+</div>
+
+<div class="collapsible-section"></div>
+<button class="collapsible">Files</button>
+    <section id="task5" class="task-section">
+        <p>
+            Files are really confusing at first it took me a long time to get it when I first
+            started, you can also see the tutorial on the 
+            <a href="https://www.w3schools.com/python/python_file_handling.asp"  target="_blank">page</a>
+            or watch a video c; it's a harder one imo. 
+        </p>
+        <div class="video-container" id="task5">
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/GJ5LJnIEEYo?si=MFaFiEkP8LdGnBVo" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        </div>
+        <div class="video-container" id="task5">
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/aequTxAvQq4?si=ODvrwRK0izb3VuVl" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        </div>
+        <p>In Python, you can <strong>read from and write to files</strong>. 
+            This is particularly useful in cybersecurity for analyzing logs, 
+            detecting anomalies, and extracting useful information from data files.</p>
+
+        <h3>Read Files in Python</h3>
+    <p>
+        To read a file in Python, you can use the <code>open()</code> function. This function opens a file and allows you to specify the mode you want to use. For reading a file, you would use <code>"r"</code> as the mode. Here’s how it works:
+    </p>
+    <ul>
+        <li>Use <code>with open("filename", "r") as file:</code> to open the file. 
+            This ensures that the file is properly closed after its suite finishes. 
+            In the "as file" u can put whatever name you like, 
+            could be as "epicFile" but then on the for loop you'll have to change it too.
+            It's a convention to put "as file" c:</li>
+        <li>You can then iterate through the file line by line using a <code>for</code> loop. </li>
+        <li>Don't really have to understand why its called <code>with open...</code>
+        just know it'll always like that for file management.</li>
+    </ul>
+    <p>
+        Here’s an example of reading a file and printing each line:
+    </p>
+    <div class="code-container">
+        <pre><code class="language-python">with open("example.txt", "r") as file:
+    for line in file:
+        print(line.strip())  # strip() removes leading/trailing whitespace</code></pre>
+    </div>
+    <p>The Strip 
+        method is used a lot in file management, it can help you remove stuff from strings.</p>
+        <div class="video-container" id="task5">
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/aQJlsmTGExc?si=5RQDRsFNxbpJRpqB" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        </div>
+        <h3>Writing a Log File</h3>
+        <p>
+            You can create a log file that records events, such as login attempts. This is done using the 
+            <code>open()</code> function in write mode (<code>"w"</code>). Here we are creating a file called 
+            login_attempts.txt and we adding those lines as text (like the linux << but with python c:). The 
+            <code>\n</code> represents a line break in Python c:
+        </p>
+        <div class="code-container">
+            <pre><code class="language-python">with open("login_attempts.txt", "w") as file:
+    file.write("user1: success\n")
+    file.write("user2: failure\n")
+    file.write("user3: success\n")
+    file.write("user4: failure\n")</code></pre>
+        </div>
+    
+        <h3>Task 5: Analyze Login Attempts - WARNING DIFFICULT jijiij</h3>
+        <p>
+            (oki might be too hard idk jijiji)
+            Kriss is analyzing a log file named <code>login_attempts.txt</code> to see how many successful 
+            login attempts were made. Write a program to read the file and count the total number of 
+            successful login attempts. You can use an if like this to check if the line is a success or not:
+        </p>
+        <div class="code-container">
+            <pre><code class="language-python">if "success" in line:</code></pre>
+        </div>
+        <p>That checks if in that specific line the string "success" is present c: Just print the number
+            of successful login attemps. Also to count you can use a helper counter c;</p>
+        <div class="video-container" id="task5">
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/tYwxVF5wr4U?si=yuJ1xagDd92Koyd0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        </div>
+        <p>If it too hard look at answer c;</p>
+        <iframe src="https://trinket.io/embed/python/f6fe0c3e2ea3" width="100%" height="600" frameborder="0" marginwidth="0" marginheight="0" allowfullscreen></iframe>        
+    
+        <textarea placeholder="Paste your output here..."></textarea>
+        <button onclick="checkOutput('2', event)">Check Output</button>
+        <div id="result5"></div>
+    
+        <!-- "Show Answer" button for task 5 -->
+        <button onclick="toggleAnswer5()">Show Answer</button>
+    
+        <!-- Hidden answer section for task 5 -->
+        <div id="answer5" style="display: none; margin-top: 10px; background-color: #eee; padding: 15px; border-radius: 5px;">
+            <p><strong>Expected Output:</strong></p>
+            <pre>2</pre>
+            <p><strong>Correct Code:</strong></p>
+            <iframe src="https://trinket.io/embed/python/2192680ed304" width="100%" height="600" frameborder="0" marginwidth="0" marginheight="0" allowfullscreen></iframe>
+    </section>
+</div>
+</main>
+
+<footer>
+    <p>&copy; 2024 BeitaEnterprises</p>
+</footer>
+
+<script src="js/script.js"></script>
+</body>
+</html>
